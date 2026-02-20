@@ -1,0 +1,23 @@
+# Example application properties (no secrets)
+spring.application.name=journalApp
+server.port=8080
+
+# MongoDB - set via environment variable in production
+spring.data.mongodb.uri=${SPRING_DATA_MONGODB_URI}
+spring.data.mongodb.database=${SPRING_DATA_MONGODB_DATABASE:journaldb}
+
+# Weather API
+weather.api.key=${WEATHER_API_KEY}
+# Mail (use environment variables for username/password)
+spring.mail.host=${SPRING_MAIL_HOST:smtp.gmail.com}
+spring.mail.port=${SPRING_MAIL_PORT:587}
+spring.mail.username=${SPRING_MAIL_USERNAME}
+sring.mail.password=${SPRING_MAIL_PASSWORD}
+
+# Redis
+spring.data.redis.url=${SPRING_DATA_REDIS_URL}
+spring.data.redis.ssl.enabled=${SPRING_DATA_REDIS_SSL_ENABLED:false}
+
+springdoc.api-docs.enabled=true
+springdoc.swagger-ui.configUrl=/v3/api-docs/swagger-config
+springdoc.swagger-ui.url=/v3/api-docs
