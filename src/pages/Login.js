@@ -19,6 +19,8 @@ function Login() {
             const token = res?.data?.token ?? (typeof res?.data === "string" ? res.data : null);
             if (token) {
                 localStorage.setItem("token", token);
+                // save username for display in UI
+                try { localStorage.setItem("username", userName); } catch (e) {}
                 if (remember) {
                     localStorage.setItem("rememberUser", userName);
                 }
