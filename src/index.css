@@ -7,7 +7,7 @@
   --gold:#c89a3d; /* glamour gold */
   --glass-shadow:rgba(30,40,20,0.08);
   --btn-padding:14px 20px;
-  --entry-height:160px; /* uniform height for title & content */
+  --entry-height:88px; /* uniform height for title & content (shorter for more rectangular look) */
 }
 
 body{
@@ -18,7 +18,7 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 
-.container{padding:28px;max-width:1100px;margin:0 auto}
+.container{padding:28px;max-width:1300px;margin:0 auto}
 
 /* Global button baseline */
 button{border:none;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease}
@@ -53,13 +53,22 @@ button{border:none;cursor:pointer;transition:transform .18s ease,box-shadow .18s
 .page-title{margin:0;color:#2b2b2b}
 
 /* Responsive tweaks */
-@media(min-width:840px){.journal-row{flex-direction:row;gap:12px}.journal-input{width:420px;height:var(--entry-height)}.journal-textarea{width:420px;height:var(--entry-height)}}
+@media(min-width:840px){
+  .journal-row{flex-direction:row;gap:12px}
+  .journal-input{width:1160px;height:var(--entry-height);max-width:96vw}
+  .journal-textarea{width:1160px;height:var(--entry-height);max-width:96vw}
+}
 
 /* Create journal form layout helpers */
 .create-journal{display:flex;flex-direction:column;gap:16px;align-items:stretch}
 .create-journal .form-field{width:100%}
 .create-journal .form-actions{display:flex;justify-content:flex-start}
 .create-journal .form-actions .btn-primary{min-width:140px}
+/* Make the action button fill the same width as the input fields */
+.create-journal .form-actions .btn-primary{width:100%}
+
+/* Disabled primary button appearance */
+.btn-primary[disabled]{opacity:0.65;cursor:not-allowed;transform:none;box-shadow:none}
 
 /* Action row: make action buttons equal size and alignment */
 .action-row{display:flex;gap:12px;margin:14px 0}
