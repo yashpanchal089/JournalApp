@@ -33,7 +33,8 @@ function CreateJournal() {
     };
 
     return (
-        <div className="container">
+        <div className="container page-with-back">
+            <button className="btn-back" onClick={() => navigate(-1)} aria-label="Go back">← Back</button>
             <h2>Create Journal</h2>
 
             <div className="create-journal">
