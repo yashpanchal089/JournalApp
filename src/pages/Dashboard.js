@@ -45,19 +45,26 @@ function Dashboard() {
 
     const handleToggleShow = () => setShowJournals(prev => !prev);
 
+    const storedName = (() => {
+        try { return localStorage.getItem('username') || null } catch (e) { return null }
+    })();
+
     return (
         <div className="container">
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <h2 className="page-title">My Journals</h2>
-                <button className="btn-logout" onClick={handleLogout}>
-                    Logout
-                </button>
+                <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+                    {storedName ? <div className="user-badge">{storedName}</div> : null}
+                    <button className="btn-logout" onClick={handleLogout}>
+                        Logout
+                    </button>
+                </div>
             </div>
             <div className="action-row">
                 <button className="btn-primary" onClick={handleAddJournal}>
                     Add Journal Entry
                 </button>
-                <button className="btn-ghost" onClick={handleToggleShow}>
+                <button className="btn-primary" onClick={handleToggleShow}>
                     {showJournals ? "Hide Journal Entries" : "Show Journal Entries"}
                 </button>
             </div>
