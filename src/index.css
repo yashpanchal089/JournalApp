@@ -1,46 +1,61 @@
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #1f1c2c, #928dab);
-  color: white;
+:root{
+  --bg:#f6f2ec; /* warm paper */
+  --surface:#fffdf8; /* card surface */
+  --muted:#7a6b57; /* muted text */
+  --accent:#6aa84f; /* green accent */
+  --accent-2:#d9b88f; /* warm tan */
+  --gold:#c89a3d; /* glamour gold */
+  --glass-shadow:rgba(30,40,20,0.08);
+  --btn-padding:14px 20px;
 }
 
-.container {
-  padding: 20px;
+body{
+  margin:0;
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(180deg, #f7f4ef 0%, #eef7f0 60%);
+  color: #2b2b2b;
+  -webkit-font-smoothing:antialiased;
 }
 
-button {
-  background: #6a11cb;
-  background: linear-gradient(to right, #2575fc, #6a11cb);
-  border: none;
-  padding: 10px 20px;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-}
+.container{padding:28px;max-width:1100px;margin:0 auto}
 
-button:hover {
-  transform: scale(1.05);
+/* Global button baseline */
+button{border:none;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease}
+
+/* Primary glamorous button */
+.btn-primary{
+  display:inline-block;padding:var(--btn-padding);color:var(--surface);font-weight:700;border-radius:999px;background:linear-gradient(90deg,var(--accent),#84b77a);box-shadow:0 12px 30px rgba(106,168,79,0.14),0 2px 0 rgba(255,255,255,0.6) inset;border:1px solid rgba(255,255,255,0.12);
 }
+.btn-primary:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 22px 48px rgba(106,168,79,0.18)}
+.btn-primary:active{transform:translateY(-2px)}
+
+/* Ghost / secondary */
+.btn-ghost{background:transparent;border:1px solid rgba(90,80,70,0.12);color:var(--muted);padding:10px 16px;border-radius:999px}
+.btn-ghost:hover{background:rgba(110,100,85,0.04);transform:none}
+
+.btn-logout{background:linear-gradient(90deg,#c36a3b,#d99b6a);color:var(--surface);padding:10px 16px;border-radius:999px;box-shadow:0 8px 26px rgba(195,106,59,0.14)}
 
 /* Journal form inputs */
-.journal-row { display: flex; align-items: center; gap: 12px; }
-.journal-input, .journal-textarea {
-  width: 420px;
-  height: 72px;
-  padding: 0 10px; /* use 0 top/bottom so line-height centers placeholder */
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 18px;
-  text-align: left;
-  line-height: 72px; /* vertical center placeholder/text for single-line appearance */
-}
-.journal-textarea { resize: vertical; vertical-align: middle; overflow:auto }
-.journal-input::placeholder, .journal-textarea::placeholder {
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 18px;
-  color: #6b7280;
-}
+.journal-row{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.journal-input,.journal-textarea{width:100%;min-width:260px;padding:14px;border-radius:12px;border:1px solid rgba(90,80,70,0.12);box-sizing:border-box;background:var(--surface);font-family: Georgia, 'Times New Roman', serif;font-size:16px;color:#222}
+.journal-textarea{min-height:140px;resize:vertical}
+.journal-input::placeholder,.journal-textarea::placeholder{color:#9b8f7d}
+
+/* Journal cards */
+.journal-card{background:linear-gradient(180deg, #fffdf8, #fff8f0);padding:18px;margin:12px 0;border-radius:12px;box-shadow:0 10px 28px var(--glass-shadow);border-left:6px solid rgba(106,168,79,0.18);color:var(--muted)}
+
+/* Ensure headings and paragraphs in entries read lighter for natural feel */
+.journal-card h3{color:var(--muted);margin:0 0 6px 0}
+.journal-card p{color:rgba(90,80,70,0.9);margin:0 0 8px 0}
+
+/* Titles */
+.page-title{margin:0;color:#2b2b2b}
+
+/* Responsive tweaks */
+@media(min-width:840px){.journal-row{flex-direction:row;gap:12px}.journal-input{width:420px}.journal-textarea{width:420px}}
+
+/* Action row: make action buttons equal size and alignment */
+.action-row{display:flex;gap:12px;margin:14px 0}
+.action-row .btn-primary,.action-row .btn-ghost,.action-row .btn-logout{flex:1;min-width:0;padding:var(--btn-padding);display:inline-flex;align-items:center;justify-content:center;font-size:15px}
+
+

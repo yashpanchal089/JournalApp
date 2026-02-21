@@ -48,25 +48,25 @@ function Dashboard() {
     return (
         <div className="container">
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <h2 style={{ margin: 0 }}>My Journals</h2>
-                <button onClick={handleLogout} style={{ padding: "8px 12px", borderRadius: 6, border: "none", background: "#ef4444", color: "white", cursor: "pointer" }}>
+                <h2 className="page-title">My Journals</h2>
+                <button className="btn-logout" onClick={handleLogout}>
                     Logout
                 </button>
             </div>
-            <div style={{ margin: "10px 0", display: "flex", gap: "10px" }}>
-                <button onClick={handleAddJournal} style={{ padding: "8px 12px", borderRadius: 6, border: "none", background: "#4b7bec", color: "white", cursor: "pointer" }}>
+            <div className="action-row">
+                <button className="btn-primary" onClick={handleAddJournal}>
                     Add Journal Entry
                 </button>
-                <button onClick={handleToggleShow} style={{ padding: "8px 12px", borderRadius: 6, border: "1px solid #ccc", background: "white", color: "#222", cursor: "pointer" }}>
+                <button className="btn-ghost" onClick={handleToggleShow}>
                     {showJournals ? "Hide Journal Entries" : "Show Journal Entries"}
                 </button>
             </div>
 
             {showJournals && journals.map((journal) => (
-                <div key={journal.id} style={{ background: "#2c2c54", padding: "15px", margin: "10px", borderRadius: "10px" }}>
+                <div key={journal.id} className="journal-card">
                     <h3>{journal.title}</h3>
                     <p>{journal.content}</p>
-                    <small>{journal.sentiment}</small>
+                    <small style={{color:'#7a6b57'}}>{journal.sentiment}</small>
                 </div>
             ))}
         </div>

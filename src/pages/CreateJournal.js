@@ -53,7 +53,8 @@ function CreateJournal() {
                 <button
                     onClick={createJournal}
                     disabled={!(title && title.trim()) && !(content && content.trim())}
-                    style={{ padding: "14px 22px", borderRadius: 12, cursor: (!(title && title.trim()) && !(content && content.trim())) ? "not-allowed" : "pointer", fontSize: 18, fontWeight: 600, minWidth: 110, opacity: (!(title && title.trim()) && !(content && content.trim())) ? 0.65 : 1 }}
+                    className="btn-primary"
+                    style={{opacity: (!(title && title.trim()) && !(content && content.trim())) ? 0.65 : 1, minWidth:110}}
                 >
                     Save
                 </button>
