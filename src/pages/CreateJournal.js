@@ -35,29 +35,36 @@ function CreateJournal() {
     return (
         <div className="container">
             <h2>Create Journal</h2>
-            <div className="journal-row">
-                <input
-                    className="journal-input"
-                    value={title}
-                    placeholder="Title"
-                    onChange={(e) => setTitle(e.target.value)}
-                />
 
-                <textarea
-                    className="journal-textarea"
-                    value={content}
-                    placeholder="Content"
-                    onChange={(e) => setContent(e.target.value)}
-                />
+            <div className="create-journal">
+                <div className="form-field">
+                    <input
+                        className="journal-input"
+                        value={title}
+                        placeholder="Title"
+                        onChange={(e) => setTitle(e.target.value)}
+                    />
+                </div>
 
-                <button
-                    onClick={createJournal}
-                    disabled={!(title && title.trim()) && !(content && content.trim())}
-                    className="btn-primary"
-                    style={{opacity: (!(title && title.trim()) && !(content && content.trim())) ? 0.65 : 1, minWidth:110}}
-                >
-                    Save
-                </button>
+                <div className="form-field">
+                    <textarea
+                        className="journal-textarea"
+                        value={content}
+                        placeholder="Content"
+                        onChange={(e) => setContent(e.target.value)}
+                    />
+                </div>
+
+                <div className="form-actions">
+                    <button
+                        onClick={createJournal}
+                        disabled={!(title && title.trim()) && !(content && content.trim())}
+                        className="btn-primary"
+                        style={{opacity: (!(title && title.trim()) && !(content && content.trim())) ? 0.65 : 1, minWidth:140}}
+                    >
+                        Save
+                    </button>
+                </div>
             </div>
         </div>
     );
